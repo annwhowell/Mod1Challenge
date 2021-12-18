@@ -33,7 +33,7 @@ print(f"There are {total_num_loans} loans in this list")
 # YOUR CODE HERE!
 
 total_value_loans = sum(loan_costs)
-print(f"The total value of the loans is {total_value_loans}")
+print(f"The total value of the loans is $ {total_value_loans}")
 
 # What is the average loan amount from the list?
 # @TODO: Using the sum of all loans and the total number of loans, calculate the average loan price.
@@ -41,7 +41,7 @@ print(f"The total value of the loans is {total_value_loans}")
 # YOUR CODE HERE!
 
 avg_loan_value = total_value_loans/total_num_loans
-print(f"The average value of the loans is {avg_loan_value}")
+print(f"The average value of the loans is $ {avg_loan_value}")
 
 print("--------------------------")
 
@@ -98,7 +98,6 @@ print("The remaining month(s) for this loan:", remaining_loan_months)
 discount_rate=.2
 present_value = future_loan_value/ (1+discount_rate/12)**remaining_loan_months
 print(f"The current value of this loan is ${present_value: .2f}")
-print("-----------------------------")
 
 
 # If Present Value represents what the loan is really worth, does it make sense to buy the loan at its cost?
@@ -199,13 +198,26 @@ loans = [
 
 # @TODO: Create an empty list called `inexpensive_loans`
 # YOUR CODE HERE!
+print("----------------------")
+print("Part 4")
+
+inexpensive_loans=[]
+
 
 # @TODO: Loop through all the loans and append any that cost $500 or less to the `inexpensive_loans` list
 # YOUR CODE HERE!
 
+for loan_cost in loans:
+    if loan_cost["loan_price"] <= 500:
+        inexpensive_loans.append(loan_cost)
+
 # @TODO: Print the `inexpensive_loans` list
 # YOUR CODE HERE!
+print("The inexpensive loans are: ", inexpensive_loans)
 
+print("----------------------------")
+
+print("Part 5")
 
 """Part 5: Save the results.
 
@@ -230,3 +242,13 @@ output_path = Path("inexpensive_loans.csv")
 # @TODO: Use the csv library and `csv.writer` to write the header row
 # and each row of `loan.values()` from the `inexpensive_loans` list.
 # YOUR CODE HERE!
+
+csvpath = Path("inexpensive_loans.csv")
+
+with open(csvpath, "w") as csvfile:
+    csvwriter = csv.writer(csvfile, delimiter=",")
+    csvwriter.writerow(header)
+    for loan_cost in inexpensive_loans:
+        csvwriter.writerow(loan_cost.values())
+
+print("A csv file called inexpensive_loans.csv has been created")        
