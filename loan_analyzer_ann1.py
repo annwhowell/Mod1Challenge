@@ -18,27 +18,20 @@ print("------------------------")
 print("Welcome to Ann's Module 1 Challenge")
 print("------------------------")
 print("Part 1")
-# How many loans are in the list?
-# @TODO: Use the `len` function to calculate the total number of loans in the list.
+
 # Print the number of loans from the list
-# YOUR CODE HERE!
 
 total_num_loans = len(loan_costs)
 print(f"There are {total_num_loans} loans in this list")
 
 
-# What is the total of all loans?
-# @TODO: Use the `sum` function to calculate the total of all loans in the list.
 # Print the total value of the loans
-# YOUR CODE HERE!
+
 
 total_value_loans = sum(loan_costs)
 print(f"The total value of the loans is $ {total_value_loans}")
 
-# What is the average loan amount from the list?
-# @TODO: Using the sum of all loans and the total number of loans, calculate the average loan price.
 # Print the average loan amount
-# YOUR CODE HERE!
 
 avg_loan_value = total_value_loans/total_num_loans
 print(f"The average value of the loans is $ {avg_loan_value}")
